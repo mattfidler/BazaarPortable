@@ -1,0 +1,39 @@
+#+TITLE: Bazaar Portable
+#+AUTHOR: Matthew L. Fidler
+* Introduction
+Bazaar is the version control system that Emacs and nxhtml use for
+keeping track of their systems.  This attempts to create a portable
+version of Bazaar.  I'm using [[https://github.com/mlf176f2/BazaarPortable][git]] to keep track of the versions. 
+* How the Portable Application Works
+To make Bazaar Portable, the following environment variables are set
+before running:
+ - =PATH=; Added the =App/Bazaar= to the =PATH= variable.
+ - =BZR_HOME=; Set =BZR_HOME= to =Data=
+ - =BZR_PLUGIN_PATH=; Set =BZR_PLUGIN_PATH= to =App\Bazaar\plugins=
+* Getting the Executables
+The easiest way to get the executables is to download from the [[http://code.google.com/p/bazaar-portable/downloads/list][Google
+Code Project]].
+
+You can get the executables directly from the Bazaar website:
+
+http://wiki.bazaar.canonical.com/WindowsDownloads
+
+You can get at the files by either installing or using the inno
+unpacker:
+
+http://innounp.sourceforge.net/
+
+They should be placed in the App/Bazaar Directory.
+
+This is based on the information given in:
+
+https://answers.launchpad.net/bzr/+question/91004
+
+
+
+
+
+* Removing Tortoise Extensions
+I don't believe the Tortoise Extensions are portable.  I have excluded
+them. 
+
