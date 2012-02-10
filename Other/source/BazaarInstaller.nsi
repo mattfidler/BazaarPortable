@@ -1,4 +1,4 @@
-!define VER 2.4.2-1
+!define VER 2.4.2-2
 SetCompress Auto
 SetCompressor /SOLID lzma
 SetCompressorDictSize 32
@@ -6,7 +6,7 @@ SetDatablockOptimize On
 RequestExecutionLevel user
 OutFile "..\..\BazaarPortable-Install-${VER}.exe"
 Icon "..\..\App\AppInfo\appicon.ico"
-Name "BazaarPortable 2.4.2-1"
+Name "BazaarPortable ${VER}"
 BrandingText "BazaarPortable"
 !include "MUI2.nsh"
 !include "FileFunc.nsh"
@@ -34,7 +34,17 @@ SectionGroup "Bazaar Portable" sec_bazaar_portable ; Collapsed
   Section "Base Files" sec_base_files ; Checked
     ; Description:
     ; Base Bazaar Files
-    RmDir /r "$INSTDIR"
+    
+    ;; Allow install to desktop and other strange places.
+    StrLen $R0 BazaarPortable
+    IntOp $R0 0 - $R0
+    StrCpy $R0 $INSTDIR "" $R0
+    StrCmp $R0 BazaarPortable +2 0
+    StrCpy $INSTDIR $INSTDIR\BazaarPortable
+    IfFileExists "$INSTDIR\App" 0 +2
+    RmDir /r "$INSTDIR\App"
+    IfFileExists "$INSTDIR\Other" 0 +2
+    RmDir /r "$INSTDIR\Data"
     SetOutPath "$INSTDIR"
     File "..\..\Readme.html"
     File "..\..\BazaarCommand.exe"
@@ -205,7 +215,7 @@ FunctionEnd
 Function .onInit
   StrCpy $PA ""
   ${GetDrives} "FDD+HDD" "GetDriveVars"
-  StrCpy $INSTDIR "$PA\BazaarPortable"
+  StrCpy $INSTDIR $PA\BazaarPortable
   IntOp $0 ${SF_RO} | ${SF_SELECTED}
   SectionSetFlags ${sec_base_files} $0
 FunctionEnd

@@ -14,7 +14,7 @@ before running:
 The easiest way to get the executables is to download from the [[http://code.google.com/p/bazaar-portable/downloads/list][Google
 Code Project]].
 
-Otherwise, if you would like t use a different version, you can get
+Otherwise, if you would like to use a different version, you can get
 the executables directly from the Bazaar website:
 
 [[http://wiki.bazaar.canonical.com/WindowsDownloads]]
