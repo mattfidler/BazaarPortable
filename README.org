@@ -1,5 +1,6 @@
 #+TITLE: Bazaar Portable
 #+AUTHOR: Matthew L. Fidler
+#+PROPERTIES: tangle
 * Introduction
 Bazaar is the version control system that Emacs and nxhtml use for
 keeping track of their systems.  This attempts to create a portable
@@ -12,7 +13,14 @@ before running:
  - =BZR_PLUGIN_PATH=; Set =BZR_PLUGIN_PATH= to =App\Bazaar\plugins=
 * Getting the Executables
 The easiest way to get the executables is to download from the [[http://code.google.com/p/bazaar-portable/downloads/list][Google
-Code Project]].
+Code Project]].  There are two options:
+
+1. The .exe installer
+   - This allows installation of Bazaar Portable allowing you to
+     select the options.
+2. The .paf.exe installer
+   - This does not allow installation of Bazaar Portable
+     Sub-components, but uses PortableApps.com format.
 
 Otherwise, if you would like to use a different version, you can get
 the executables directly from the Bazaar website:
